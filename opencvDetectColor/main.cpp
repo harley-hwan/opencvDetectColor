@@ -65,7 +65,8 @@ int main()
 	cout << low_hue2 << "  " << high_hue2 << endl;
 
 
-	VideoCapture cap("test.mp4");
+	//VideoCapture cap("test.mp4");
+	VideoCapture cap("http://192.168.8.1:8080/?action=stream");
 	Mat img_frame, img_hsv;
 
 
@@ -85,7 +86,10 @@ int main()
 			cerr << "ERROR! blank frame grabbed\n";
 			break;
 		}
+		Point2f pt1;
+		Point2f pt2;
 
+		Mat mat_roi = img_frame(Rect(pt1, pt2));
 
 		//HSV·Î º¯È¯
 		cvtColor(img_frame, img_hsv, COLOR_BGR2HSV);
